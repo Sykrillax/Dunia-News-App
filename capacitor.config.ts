@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'newsApp',
+  appName: 'apakahada_nodemodule',
   webDir: 'www'
 };
 

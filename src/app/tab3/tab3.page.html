@@ -1,17 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      <ion-icon name="logo-designernews"></ion-icon>
+      Dunia News
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-segment (ionChange)="onSegmentChanged($event)" class="category-segment">
+    <ion-segment-button *ngFor="let category of categories" [value]="category">
+      {{ category | titlecase }}
+    </ion-segment-button>
+  </ion-segment>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <!-- Spinner diposisikan di tengah -->
+  <div class="spinner-container" *ngIf="loading">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+
+  <ion-list *ngIf="!loading">
+    <ion-item *ngFor="let article of headlines">
+      <ion-thumbnail slot="start">
+        <img [src]="article.urlToImage">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.description }}</p>
+        <ion-button fill="clear" href="{{ article.url }}" target="_blank">Read more</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Tombol Load More dengan kelas load-more -->
+  <ion-button *ngIf="showLoadMoreButton && !loading" expand="block" class="load-more" (click)="loadMoreHeadlines()">
+    Load More
+  </ion-button>
 </ion-content>
