@@ -14,7 +14,6 @@
     </ion-segment-button>
   </ion-segment>
 
-  <!-- Spinner diposisikan di tengah -->
   <div class="spinner-container" *ngIf="loading">
     <ion-spinner name="crescent"></ion-spinner>
   </div>
@@ -28,11 +27,13 @@
         <h2>{{ article.title }}</h2>
         <p>{{ article.description }}</p>
         <ion-button fill="clear" href="{{ article.url }}" target="_blank">Read more</ion-button>
+        <ion-button fill="clear" (click)="toggleFavorite(article)">
+          <ion-icon [name]="isFavorite(article) ? 'bookmark' : 'bookmark-outline'"></ion-icon>
+        </ion-button>
       </ion-label>
     </ion-item>
   </ion-list>
 
-  <!-- Tombol Load More dengan kelas load-more -->
   <ion-button *ngIf="showLoadMoreButton && !loading" expand="block" class="load-more" (click)="loadMoreHeadlines()">
     Load More
   </ion-button>

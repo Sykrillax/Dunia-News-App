@@ -1,17 +1,30 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let article of articles">
+        <ion-card>
+          <img [src]="article.urlToImage" *ngIf="article.urlToImage">
+          <ion-card-header>
+            <ion-card-title>{{ article.title }}</ion-card-title>
+            <ion-card-subtitle>{{ article.source.name }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{ article.description }}
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+ 
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
 </ion-content>

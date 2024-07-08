@@ -1,1 +1,14 @@
 
+/* src/app/tabs/tabs.page.scss */
+ion-tab-bar {
+    --background: #ffffff;
+    --color-selected: #323232; /* Text color for selected tab */
+    --color: #936DB1; /* Text color for unselected tab */
+  }
+  
+  ion-tab-button {
+    --color-selected: #323232; /* Text color for selected tab */
+    --color: #A8B2BC; /* Text color for unselected tab */
+    --color-selected-border: #323232; /* Border color for selected tab */
+  }
+  

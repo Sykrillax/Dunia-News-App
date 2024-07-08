@@ -31,6 +31,9 @@
     <ion-card-content>
       <p>{{ item.description }}</p>
       <ion-button fill="clear" [href]="item.url" target="_blank">Read more <ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+      <ion-button fill="clear" (click)="toggleFavorite(item)">
+        <ion-icon [name]="isFavorite(item) ? 'bookmark' : 'bookmark-outline'"></ion-icon>
+      </ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

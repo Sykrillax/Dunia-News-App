@@ -50,3 +50,17 @@ justify-content: center;
 align-items: center;
 height: 100vh; 
 }
+
+ion-button {
+  --background: #ffffff;
+  --color: #936DB1;
+}
+
+ion-spinner {
+  --color: #936DB1;
+}
+
+.load-more {
+  --background: #936DB1;
+  --color: #ffffff;
+}

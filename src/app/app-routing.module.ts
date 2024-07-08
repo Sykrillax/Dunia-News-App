@@ -1,5 +1,3 @@
-// src/app/app-routing.module.ts
-
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -11,6 +9,10 @@ const routes: Routes = [
   {
     path: 'tab1',
     loadChildren: () => import('./tab1/tab1.module').then(m => m.Tab1PageModule)
+  },
+  {
+    path: 'tab4',
+    loadChildren: () => import('./tab4/tab4.module').then( m => m.Tab4PageModule)
   }
 ];
 

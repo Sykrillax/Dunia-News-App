@@ -12,9 +12,9 @@ export class Tab3Page implements OnInit {
   public sources: Source[] = [];
   public categories = ['business', 'entertainment', 'health', 'science', 'sports', 'technology'];
   public selectedCategory: string = 'business';
-  public loading: boolean = false;  // Properti untuk mengelola status pemuatan
-  public showLoadMoreButton: boolean = false; // Menambahkan variabel untuk menampilkan tombol "Lihat lebih banyak"
-  public totalHeadlinesDisplayed: number = 8; // Menambahkan variabel untuk melacak jumlah berita yang ditampilkan
+  public loading: boolean = false;
+  public showLoadMoreButton: boolean = false;
+  public totalHeadlinesDisplayed: number = 8;
 
   constructor(private apiService: ApiService) {}
 
@@ -46,7 +46,22 @@ export class Tab3Page implements OnInit {
   }
 
   loadMoreHeadlines() {
-    this.totalHeadlinesDisplayed += 8; // Menambah jumlah berita yang ditampilkan
-    this.getNewsByCategory(this.selectedCategory); // Memuat ulang berita dengan jumlah yang diperbarui
+    this.totalHeadlinesDisplayed += 8;
+    this.getNewsByCategory(this.selectedCategory);
+  }
+
+  toggleFavorite(article: Article) {
+    let favorites = JSON.parse(localStorage.getItem('favoriteArticles') || '[]');
+    if (favorites.some((fav: Article) => fav.title === article.title)) {
+      favorites = favorites.filter((fav: Article) => fav.title !== article.title);
+    } else {
+      favorites.push(article);
+    }
+    localStorage.setItem('favoriteArticles', JSON.stringify(favorites));
+  }
+
+  isFavorite(article: Article): boolean {
+    const favorites = JSON.parse(localStorage.getItem('favoriteArticles') || '[]');
+    return favorites.some((fav: Article) => fav.title === article.title);
   }
 }
