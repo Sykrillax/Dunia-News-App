@@ -10,15 +10,18 @@ import { Article } from '../news-api-response';
 export class Tab2Page {
   topic: string = '';
   newsData: Article[] = [];
+  trendingTopics: string[] = [];
   loading: boolean = false;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) {
+    this.getTrendingTopics();
+  }
 
   search() {
     this.loading = true;
     this.apiService.getNews(this.topic).subscribe(
       (data) => {
-        this.newsData = data.articles; 
+        this.newsData = data.articles;
         this.loading = false;
       },
       (error) => {
@@ -26,6 +29,27 @@ export class Tab2Page {
         this.loading = false;
       }
     );
+  }
+
+  getTrendingTopics() {
+    this.apiService.getTopHeadlines().subscribe(
+      (data) => {
+        const topics = new Set<string>();
+        data.articles.forEach(article => {
+          const topic = article.title.split(' ').slice(0, 3).join(' ');
+          topics.add(topic);
+        });
+        this.trendingTopics = Array.from(topics).slice(0, 6);
+      },
+      (error) => {
+        console.error('Error fetching trending topics:', error);
+      }
+    );
+  }
+
+  setTopic(topic: string) {
+    this.topic = topic;
+    this.search();
   }
 
   toggleFavorite(article: Article) {

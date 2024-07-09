@@ -34,7 +34,6 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^18.0.0",
     "@angular-devkit/build-angular": "^18.0.0",
     "@angular-eslint/builder": "^18.0.0",
     "@angular-eslint/eslint-plugin": "^18.0.0",
@@ -54,7 +53,6 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsdoc": "^48.2.1",
     "eslint-plugin-prefer-arrow": "1.2.2",
-    "file-loader": "^6.2.0",
     "jasmine-core": "~5.1.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.4.0",
@@ -62,6 +60,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "mini-css-extract-plugin": "^2.9.0",
+    "ngx-build-plus": "^18.0.0",
+    "postcss-loader": "^8.1.1",
     "style-loader": "^4.0.0",
     "typescript": "~5.4.0"
   },

@@ -1,6 +1,6 @@
 
 ```
-newsApp
+apakahada_nodemodule
 ├─ .browserslistrc
 ├─ .editorconfig
 ├─ .eslintrc.json
@@ -32,12 +32,10 @@ newsApp
 │  │  ├─ HEAD
 │  │  └─ refs
 │  │     ├─ heads
-│  │     │  └─ main
+│  │     │  ├─ main
+│  │     │  └─ master
 │  │     └─ remotes
-│  │        ├─ main
-│  │        │  ├─ main
-│  │        │  └─ master
-│  │        └─ origin
+│  │        └─ main
 │  │           ├─ main
 │  │           └─ master
 │  ├─ objects
@@ -49,6 +47,8 @@ newsApp
 │  │  ├─ 0a
 │  │  │  ├─ 3783d9e7797176f9b4006b7f81b3c7ebfc11ce
 │  │  │  └─ bbfd2de3e0d337bfbbe4041622eef2d52939d4
+│  │  ├─ 0b
+│  │  │  └─ 83c0dcaef8b48509ba3316f311a38780e07243
 │  │  ├─ 0c
 │  │  │  └─ 4d1e8fb37fc27c303debadbe6955ea122e0684
 │  │  ├─ 0d
@@ -68,23 +68,32 @@ newsApp
 │  │  ├─ 1b
 │  │  │  └─ 881d8673ad79f09abafedb2b97b76f8481673a
 │  │  ├─ 1c
+│  │  │  ├─ 4a3430bd94f81193e3953c6c5407849bb0a049
 │  │  │  └─ 615f812ad03d5332a8bf09533a057e98eb4e56
 │  │  ├─ 1d
 │  │  │  ├─ 35c6dced9660333bfdda004387403c9b28933a
+│  │  │  ├─ 6366bd2ba05eed744c3f0de4b46959e81ce826
 │  │  │  └─ e3ebf83db42be8832446a6b75fdcf5af561288
+│  │  ├─ 20
+│  │  │  └─ 7dc467ffbed9fd927ffc04177fc94eec1e2dd4
 │  │  ├─ 21
 │  │  │  └─ fec5f952fe30df68a42c4d54b57f54472b9c9a
 │  │  ├─ 22
 │  │  │  ├─ 2333d58e15d440285764c88320d9a7ee04add8
 │  │  │  └─ e11e47565a6ea22645de88a569fa87fc2c1425
 │  │  ├─ 24
+│  │  │  ├─ daad0aaa81ac10ce3dbdd94be3998093eaf1be
 │  │  │  └─ f6d0faef54e528e5ccdeacdce106c7ea8f0db9
 │  │  ├─ 25
 │  │  │  ├─ 2875f3f425ac6da485a0d8ac54e234a2ce7a4b
 │  │  │  └─ 99fc6a5333c1e49a7369c550de87b56cab2671
+│  │  ├─ 26
+│  │  │  └─ 7c36c922d35ac10fd77f815df03e0ac48f8ba0
 │  │  ├─ 28
 │  │  │  ├─ 6ca1432670873e17b7ac4c1076c142020fd5b1
 │  │  │  └─ d86196c375de71df2d5d7a23e09a450f1cdae0
+│  │  ├─ 29
+│  │  │  └─ 1f4616f9e42884ef80b010df8fe345a0468461
 │  │  ├─ 2d
 │  │  │  └─ 0c31027d595690e8290e3a68079aa4dc439684
 │  │  ├─ 31
@@ -94,6 +103,7 @@ newsApp
 │  │  ├─ 37
 │  │  │  └─ 9e500cddcea6c522484d84c85902e33b704a63
 │  │  ├─ 38
+│  │  │  ├─ 0cb680bffc09d53e08ee5d3e11b31d8f707937
 │  │  │  └─ b153ec416a0ab642182dcc5ce37551ea6fe5f3
 │  │  ├─ 39
 │  │  │  ├─ 4705a805c9efba1f2006347935f40045132ebb
@@ -105,12 +115,16 @@ newsApp
 │  │  │  └─ 82084ce9ef13fd558f8099183845a9486c8b9d
 │  │  ├─ 3d
 │  │  │  └─ eefc3b1e85ad70fce03796e6be41ff564e957a
+│  │  ├─ 3e
+│  │  │  └─ d9379463356d1290c850df09e7a4d37a2b854a
 │  │  ├─ 40
 │  │  │  └─ a3de8b7b01137dcdf3b0b42a010bd34f9ffe58
 │  │  ├─ 42
+│  │  │  ├─ 105e723b312cf1c8b3fa41d645c85a550dc3ec
 │  │  │  ├─ 55dd8910b9da5d61e76395b8d0142a7c389776
 │  │  │  └─ 6cede0fcbf512c7614906ab81532ead8fd72e3
 │  │  ├─ 43
+│  │  │  ├─ 05c091eec3c32fc9ad9c2cc8590b58125faacb
 │  │  │  ├─ 762961fbdeb24e5e06f6f0b676caaf1a8870e3
 │  │  │  └─ 7d5ee65e68d369038abe15e0d82e28abb1bdac
 │  │  ├─ 45
@@ -148,12 +162,15 @@ newsApp
 │  │  │  └─ c6d4f56b0c90b1486c1499589f71893bbf52ab
 │  │  ├─ 61
 │  │  │  ├─ 1c27fba7792e4d20a19f11295c7d22a1b0536f
-│  │  │  └─ 46c3923bcbcd4e372b8a0015ea15d3e7d4922f
+│  │  │  ├─ 46c3923bcbcd4e372b8a0015ea15d3e7d4922f
+│  │  │  └─ 7ff7ca167618731543339084c19ee80ae05dbd
 │  │  ├─ 62
 │  │  │  └─ 3309d52aa92ecc2a09b07be2a136c684b3064e
 │  │  ├─ 67
 │  │  │  ├─ 3bed3a5dd53267cc486b571c0594d78abca329
 │  │  │  └─ b22b7db5520e9aeb08972b6bc52c14789dd557
+│  │  ├─ 68
+│  │  │  └─ 940d10aed39ed7ecf50ff7fe99f0eac0376984
 │  │  ├─ 69
 │  │  │  ├─ 86d9e485c72b58e33d30bf7f8877600c41ac93
 │  │  │  ├─ e7e86262ace404de823d93f67667018379c7eb
@@ -166,6 +183,8 @@ newsApp
 │  │  ├─ 75
 │  │  │  ├─ 0ba8240f79eb31105bfdb348e45ae3a6ec73b6
 │  │  │  └─ 25c472e41e43342ace65e619b5f2043a134ec2
+│  │  ├─ 76
+│  │  │  └─ e11a9914cdd3af350db5e7424e263ee1ffc296
 │  │  ├─ 77
 │  │  │  └─ 0e87e99294851f7ba45d2d32890dd78403d0a7
 │  │  ├─ 78
@@ -180,6 +199,7 @@ newsApp
 │  │  ├─ 80
 │  │  │  └─ 1bf5b2b898ea1999339684a659e2b12cb782ec
 │  │  ├─ 82
+│  │  │  ├─ 3c880c4bbfae61f3af878dcefbcbe2ea0601d4
 │  │  │  ├─ 5dae31cd3ba63f1924eb23a12f46028b98e2d2
 │  │  │  └─ d91dc4a4de57f380b66c59cdd16ff6cd5798e4
 │  │  ├─ 83
@@ -188,6 +208,7 @@ newsApp
 │  │  ├─ 84
 │  │  │  └─ 0c6c6a1df16c1181e85f218da4987a69671056
 │  │  ├─ 86
+│  │  │  ├─ 6c6aa21ff2929a138ba8a14f4c1841d8c1f52e
 │  │  │  ├─ 99dd91fee860dbfe2174131c162a449021a125
 │  │  │  └─ ea98092e80a3b90e84a7db3f6f8b46f843c57a
 │  │  ├─ 88
@@ -201,6 +222,8 @@ newsApp
 │  │  │  └─ ec9e9f2d913d93ff710da1e0f1326f2a153093
 │  │  ├─ 8c
 │  │  │  └─ 1cf5b35d039cf798b79671c6c1857850fcfa16
+│  │  ├─ 8d
+│  │  │  └─ 2dc8b566da2f505eec71cf2ee330443f2fdaee
 │  │  ├─ 8e
 │  │  │  └─ 43016b270bd07772175dcf4399c394994c67b3
 │  │  ├─ 8f
@@ -210,6 +233,8 @@ newsApp
 │  │  ├─ 91
 │  │  │  ├─ 3de3dfee8c9c7b1b3d569e5aa0d19a24193111
 │  │  │  └─ ec6da5f07886cf1d97b5d4212f4ddaa3eb2c9c
+│  │  ├─ 96
+│  │  │  └─ 8a4c5bf5ed049df0e661ede5551bd1a028681f
 │  │  ├─ 9a
 │  │  │  └─ 68854a8bcea91c36a6e2eed605c64f37a5b6c7
 │  │  ├─ 9d
@@ -222,7 +247,8 @@ newsApp
 │  │  ├─ a6
 │  │  │  └─ c63ff681b88599fa41861f140d1b4646bbe7c8
 │  │  ├─ a8
-│  │  │  └─ 12533ea5bff67581a4f798f3bb5e6d0fb1334b
+│  │  │  ├─ 12533ea5bff67581a4f798f3bb5e6d0fb1334b
+│  │  │  └─ 2c862a3fda6ec492d4969a0a3906d45212a092
 │  │  ├─ aa
 │  │  │  └─ 62515d8b78eda6c637659eb636b40099f87aa2
 │  │  ├─ ac
@@ -235,7 +261,10 @@ newsApp
 │  │  ├─ b1
 │  │  │  └─ 585338ad77bda9a69b5cefc9e7c60b570b48ee
 │  │  ├─ b4
-│  │  │  └─ 303b3fbc94dad10fbdd92cbe517333f1bc0896
+│  │  │  ├─ 303b3fbc94dad10fbdd92cbe517333f1bc0896
+│  │  │  └─ ce0dbd8ac9eef0a40c5a261c673c5a40a2ad88
+│  │  ├─ b5
+│  │  │  └─ 0b2c50243075eda8dd833cc9301583b5299c01
 │  │  ├─ b6
 │  │  │  └─ 5948873d94b5747ff982d9c99ab26d56d22c48
 │  │  ├─ b7
@@ -245,6 +274,8 @@ newsApp
 │  │  ├─ bb
 │  │  │  ├─ 6a55703e81f0f41025c158102f6c44dff17ccd
 │  │  │  └─ adb7d643c9087f54383f5b088e1a1b2f7e76ee
+│  │  ├─ bc
+│  │  │  └─ 0134b905efa215b62de0151c78a3ea1c1cdfe7
 │  │  ├─ c0
 │  │  │  ├─ 310ae68257073a88a5d5d84c69a673a6864b32
 │  │  │  └─ 98668f374aebf19db6b050960b8c2c21038e9b
@@ -259,13 +290,16 @@ newsApp
 │  │  │  ├─ a9a7cdf68996626bfec9e996f824aba99ec4f4
 │  │  │  └─ f81be9f534fefae283805e4a8afc7c1efd6824
 │  │  ├─ cc
-│  │  │  └─ 2d00240ba5c3875600f630d3ccfd0f6f35d0f3
+│  │  │  ├─ 2d00240ba5c3875600f630d3ccfd0f6f35d0f3
+│  │  │  └─ 705e796876cfff1ca8dbed85354272c5726ee1
 │  │  ├─ cd
 │  │  │  └─ 411a106e3eba3e26df4e877c4d44a6b56160b8
 │  │  ├─ cf
 │  │  │  └─ b5aa02c9a16eb3e1763fc0c38bf77bb2c5cd0a
 │  │  ├─ d0
 │  │  │  └─ 3c81f54f52a294ba990c7093953a084206e5a0
+│  │  ├─ d1
+│  │  │  └─ 0d7d37c259e47f8cce9c1e3414867c29606303
 │  │  ├─ d3
 │  │  │  ├─ 17e489543969fa9b6520c30622ca6f5bd4ad28
 │  │  │  ├─ 314f59835c09eca0735df4a0f4a263466ebb9f
@@ -276,9 +310,12 @@ newsApp
 │  │  ├─ db
 │  │  │  └─ 7bffd534575544651d80b38418d6ef0915f3be
 │  │  ├─ dd
-│  │  │  └─ 0a2396384891d9c87036feed61d6be972e6d94
+│  │  │  ├─ 0a2396384891d9c87036feed61d6be972e6d94
+│  │  │  └─ a0b29f9733cb50117b1ec15b7f303fbda533b9
 │  │  ├─ de
 │  │  │  └─ 4184a7982c5a5d7b1a4f00969af9f2a6dcee05
+│  │  ├─ e0
+│  │  │  └─ aa07cf9e70de392b6a3a547f62322e9f1b9942
 │  │  ├─ e1
 │  │  │  └─ 4cad4091ce9e0b519cd3eb815276b23180b135
 │  │  ├─ e3
@@ -287,7 +324,8 @@ newsApp
 │  │  │  └─ 26762a5e291148dcdfd50d34990162c13f611b
 │  │  ├─ e6
 │  │  │  ├─ 156721affff895b251118374f88dda47edf2d3
-│  │  │  └─ 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+│  │  │  ├─ 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+│  │  │  └─ e1e8807968850b1cb75ca21d7a37f209bc6b15
 │  │  ├─ e7
 │  │  │  └─ c7b88885bb9d75fb2768ce71080d4c5e408a29
 │  │  ├─ e8
@@ -300,39 +338,43 @@ newsApp
 │  │  │  └─ fb6ffc125fb5170b8f659f42ca0a4a6a646fd3
 │  │  ├─ ec
 │  │  │  ├─ 1bbfea64247290bcbfb5a2073669dbc185f12c
+│  │  │  ├─ 3d631f45f3894320426d6a331d3a90ea312fa4
 │  │  │  └─ a6575c2dd0bc482a0406808b75c525469028e1
 │  │  ├─ ed
 │  │  │  └─ 70c8805991e6fabf0a3725497ec69b4800c37b
 │  │  ├─ ee
+│  │  │  ├─ 1dd581b3335cb5748369633e90d6b03bf9bd2a
 │  │  │  ├─ b381df23798b3cf700756f79ae94407a6214b5
 │  │  │  └─ c1752b9e6845c8ff761654a44b0216d89885f8
+│  │  ├─ f2
+│  │  │  └─ a5c16838a685bdafad616302d5d92d5e4b0535
 │  │  ├─ f3
 │  │  │  └─ 0aae267b44d360dce39eee990d084a27cf26d4
 │  │  ├─ f5
 │  │  │  └─ 6ff47022c7a46eac3aee615d6d9150338524dc
+│  │  ├─ f6
+│  │  │  └─ b00e1283b2471c8f2cfe90a9c525eb7fbca7da
 │  │  ├─ f7
 │  │  │  └─ ba6c11692bfa5a257b67b8a3efbdc8c82fa449
 │  │  ├─ f8
 │  │  │  ├─ 0ffa25c1dfa063f6a3093d2a9b37d7e8d1e9b9
+│  │  │  ├─ 62e28170d74294005bd10c7bdec651a82c8fe6
 │  │  │  └─ bb9a7590c2fbab0ae5f256ffc2b1626a9866b2
 │  │  ├─ fc
 │  │  │  └─ c46d05bbdd8ee68583675a706a5b5cc57e3a33
+│  │  ├─ fe
+│  │  │  └─ 12462fd9c01b30d0200eaa937582488b1a0ec0
 │  │  ├─ ff
 │  │  │  └─ 8f6eaf0f6207de644a1323fb4c5d3a7949cdff
 │  │  ├─ info
 │  │  └─ pack
-│  │     ├─ pack-c5ce7829a06d3dcb898b459b9307f5abecf8c0a2.idx
-│  │     ├─ pack-c5ce7829a06d3dcb898b459b9307f5abecf8c0a2.pack
-│  │     └─ pack-c5ce7829a06d3dcb898b459b9307f5abecf8c0a2.rev
 │  ├─ ORIG_HEAD
 │  └─ refs
 │     ├─ heads
-│     │  └─ main
-│     ├─ remotes
 │     │  ├─ main
-│     │  │  ├─ main
-│     │  │  └─ master
-│     │  └─ origin
+│     │  └─ master
+│     ├─ remotes
+│     │  └─ main
 │     │     ├─ main
 │     │     └─ master
 │     └─ tags
@@ -400,7 +442,8 @@ newsApp
 │  │  ├─ fonts
 │  │  │  └─ PlayfairDisplay-VariableFont_wght.ttf
 │  │  ├─ icon
-│  │  │  └─ favicon.png
+│  │  │  ├─ favicon.png
+│  │  │  └─ logo.png
 │  │  ├─ img
 │  │  │  ├─ assets1.png
 │  │  │  ├─ assets2.png

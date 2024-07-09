@@ -28,7 +28,7 @@ export class Tab3Page implements OnInit {
     this.loading = true;
     this.apiService.getTopHeadlines().subscribe((result) => {
       this.headlines = result.articles;
-      this.filterHeadlines();
+      this.filteredHeadlines = this.headlines.slice(0, this.totalHeadlinesDisplayed);
       this.showLoadMoreButton = this.headlines.length > this.totalHeadlinesDisplayed;
       this.loading = false;
     });
@@ -38,21 +38,15 @@ export class Tab3Page implements OnInit {
     this.loading = true;
     this.apiService.getNewsByCategory(category).subscribe((result) => {
       this.headlines = result.articles;
-      this.filterHeadlines();
+      this.filteredHeadlines = this.headlines.slice(0, this.totalHeadlinesDisplayed);
       this.showLoadMoreButton = this.headlines.length > this.totalHeadlinesDisplayed;
       this.loading = false;
     });
   }
 
-  filterHeadlines() {
-    this.filteredHeadlines = this.headlines
-      .filter(article => article.urlToImage && /^[A-Za-z0-9\s.,'!?"-]+$/.test(article.title))
-      .slice(0, this.totalHeadlinesDisplayed);
-  }
-
   loadMoreHeadlines() {
     this.totalHeadlinesDisplayed += 8;
-    this.filterHeadlines();
+    this.filteredHeadlines = this.headlines.slice(0, this.totalHeadlinesDisplayed);
   }
 
   toggleFavorite(article: Article) {

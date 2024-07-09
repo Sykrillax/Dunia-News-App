@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { NewsApiResponse, SourceApiResponse } from './news-api-response';
 
@@ -7,7 +7,7 @@ import { NewsApiResponse, SourceApiResponse } from './news-api-response';
   providedIn: 'root'
 })
 export class ApiService {
-  public apiKey: string = '5f63d2577eb84670bd0a0becc87738b8';
+  public apiKey: string = '6444b883d176425cbcceb92b781203b4';
   public apiUrl: string = 'https://newsapi.org/v2'; 
 
   constructor(public http: HttpClient) { }
@@ -45,5 +45,10 @@ export class ApiService {
     const url = `${this.apiUrl}/sources`;
     const params = new HttpParams().set('apiKey', this.apiKey);
     return this.http.get<SourceApiResponse>(url, { params });
+  }
+
+  // Method to check if an article URL is still accessible
+  checkArticleExists(url: string): Observable<HttpResponse<any>> {
+    return this.http.head<any>(url, { observe: 'response' });
   }
 }

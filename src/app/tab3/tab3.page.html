@@ -16,33 +16,30 @@
     <h1 class="header-title">News by Category</h1>
     <p class="header-subtitle">Find news based on what you are looking for</p>
     <ion-button (click)="presentCategoryPicker()" class="filter-button">
-      <ion-icon slot="start" name="filter-outline" ></ion-icon>
+      <ion-icon slot="start" name="filter-outline"></ion-icon>
       Filter
     </ion-button>
     <p *ngIf="selectedCategory" class="selected-category">Selected Category: {{ selectedCategory | titlecase }}</p>
   </div>
 
-  <h2 class="section-title">Related News</h2>
-
-  <div class="spinner-container" *ngIf="loading">
-    <ion-spinner name="crescent"></ion-spinner>
+  <div class="related-news">
+    <h2>Related News</h2>
+    <ion-list>
+      <ion-item *ngFor="let article of headlines">
+        <ion-thumbnail slot="start">
+          <img [src]="article.urlToImage" *ngIf="article.urlToImage">
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{ article.title }}</h3>
+          <p>{{ article.description }}</p>
+          <ion-button fill="clear" href="{{ article.url }}" target="_blank">Read more</ion-button>
+          <ion-button fill="clear" (click)="toggleFavorite(article)">
+            <ion-icon [name]="isFavorite(article) ? 'bookmark' : 'bookmark-outline'"></ion-icon>
+          </ion-button>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </div>
-
-  <ion-list *ngIf="!loading">
-    <ion-item *ngFor="let article of filteredHeadlines">
-      <ion-thumbnail slot="start" *ngIf="article.urlToImage">
-        <img [src]="article.urlToImage">
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ article.title }}</h2>
-        <p>{{ article.description }}</p>
-        <ion-button fill="clear" href="{{ article.url }}" target="_blank" class="read-more-button">Read more</ion-button>
-        <ion-button fill="clear" (click)="toggleFavorite(article)">
-          <ion-icon [name]="isFavorite(article) ? 'bookmark' : 'bookmark-outline'" class="bookmark-icon"></ion-icon>
-        </ion-button>
-      </ion-label>
-    </ion-item>
-  </ion-list>
 
   <ion-button *ngIf="showLoadMoreButton && !loading" expand="block" class="load-more" (click)="loadMoreHeadlines()">
     Load More

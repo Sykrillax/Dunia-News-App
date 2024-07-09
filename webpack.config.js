@@ -1,16 +1,19 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader'],
-          include: /node_modules/
-        },
-        {
-          test: /\.(woff|woff2|eot|ttf|otf)$/,
-          use: ['file-loader']
-        }
-      ]
-    }
-  };
-  
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+      },
+    ],
+  },
+  plugins: [new MiniCssExtractPlugin()],
+  ignoreWarnings: [
+    {
+      module: /swiper\/swiper-bundle\.css/,
+      message: /export '.*' was not found in/,
+    },
+  ],
+};

@@ -22,6 +22,17 @@
 
   <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
 
+  <div class="suggestions" *ngIf="!loading && newsData.length === 0">
+    <h2>Suggestions</h2>
+    <ion-chip *ngFor="let topic of trendingTopics" (click)="setTopic(topic)">
+      {{ topic }}
+    </ion-chip>
+  </div>
+
+  <div *ngIf="!loading && newsData.length === 0">
+    <img src="assets/img/assets1.png" alt="No results" class="placeholder-image">
+  </div>
+
   <ion-card *ngFor="let item of newsData" class="news-card">
     <ion-img [src]="item.urlToImage" class="news-image"></ion-img>
     <ion-card-header>
@@ -30,7 +41,7 @@
     </ion-card-header>
     <ion-card-content>
       <p>{{ item.description }}</p>
-      <ion-button fill="clear" [href]="item.url" target="_blank">Read more <ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+      <ion-button fill="clear" [href]="item.url" target="_blank">Read more</ion-button>
       <ion-button fill="clear" (click)="toggleFavorite(item)">
         <ion-icon [name]="isFavorite(item) ? 'bookmark' : 'bookmark-outline'"></ion-icon>
       </ion-button>

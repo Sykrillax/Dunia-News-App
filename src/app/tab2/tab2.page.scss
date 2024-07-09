@@ -1,92 +1,122 @@
 .judul {
-    font-family: 'PlayfairDisplay';
-    font-weight: 900;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    color: #323232;
+  font-family: 'PlayfairDisplay';
+  font-weight: 900;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: #323232;
 }
 
 .header-container {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .header {
-    font-family: 'PlayfairDisplay';
-    font-size: 24px;
-    font-weight: 900;
-    color: #323232;
-  }
-  
-  .search {
-    margin: 10px 20px;
-    --background: #936DB1; 
-    color: white;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease; 
+  text-align: center;
+  margin-top: 20px;
 }
-  
+
+.header {
+  font-family: 'PlayfairDisplay';
+  font-size: 24px;
+  font-weight: 900;
+  color: #323232;
+}
+
+.search {
+  margin: 10px 20px;
+  --background: #936DB1; 
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
 .news-card {
-    margin: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
-  
+
 .news-image {
-    width: 100%;
-    max-width: 100%;
-    max-height: calc(100vw * 9 / 16);
-    object-fit: cover; /* Menggunakan object-fit untuk memotong gambar jika melebihi ukuran frame */
-    overflow: hidden; /* Memastikan bagian gambar yang melebihi format terpotong */
+  width: 100%;
+  max-width: 100%;
+  max-height: calc(100vw * 9 / 16);
+  object-fit: cover;
+  overflow: hidden;
 }
 
-
-
-  
-  ion-card-header {
-    padding: 10px;
-  }
-  
-  ion-card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  ion-card-subtitle {
-    font-size: 14px;
-    color: gray;
-    margin-bottom: 10px;
-  }
-  
-  ion-card-content {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap; /* Mengatur agar konten bersifat responsif dan dapat berbaris baru jika tidak cukup ruang */
+ion-card-header {
+  padding: 10px;
 }
-  
-  ion-card-content p {
-    margin: 0 0 10px 0;
-    font-size: 16px;
-    color: #333;
-    max-width: 100%; /* Batasi lebar maksimum konten deskripsi agar tidak melebihi lebar gambar */
+
+ion-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
-  
+
+ion-card-subtitle {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+ion-card-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+ion-card-content p {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+  max-width: 100%;
+}
+
 ion-button[fill="clear"] {
-    color: #936DB1;
-    text-decoration: none !important;
-    transition: background-color 0.3s ease; /* Menambahkan transisi untuk efek hover */
+  color: #936DB1;
+  text-decoration: none !important;
+  transition: background-color 0.3s ease;
 }
 
 ion-button[fill="clear"]:hover {
-    filter: brightness(30%); /* Mengurangi kecerahan saat hover */
+  filter: brightness(30%);
 }
 
-  
-  ion-spinner {
-    display: block;
-    margin: 20px auto;
+ion-spinner {
+  display: block;
+  margin: 20px auto;
+}
+
+.suggestions {
+  text-align: center;
+  margin: 20px;
+}
+
+.suggestions h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #323232;
+}
+
+ion-chip {
+  margin: 5px;
+  animation: moveChip 1s ease-in-out;
+}
+
+@keyframes moveChip {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
   }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.placeholder-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
