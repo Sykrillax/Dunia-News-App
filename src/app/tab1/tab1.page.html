@@ -7,24 +7,50 @@
 </ion-header>
 
 <ion-content>
+  <h1 class="top-news-title">Top 10 for Today</h1>
+  
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" *ngFor="let article of articles">
-        <ion-card>
+      <div class="swiper-slide" *ngFor="let article of topArticles">
+        <ion-card (click)="openArticle(article.url)" class="swiper-card">
           <img [src]="article.urlToImage" *ngIf="article.urlToImage">
           <ion-card-header>
             <ion-card-title>{{ article.title }}</ion-card-title>
-            <ion-card-subtitle>{{ article.source.name }}</ion-card-subtitle>
+            <ion-card-subtitle>{{ article.publishedAt | date:'medium' }} by {{ article.author }}</ion-card-subtitle>
           </ion-card-header>
-          <ion-card-content>
-            {{ article.description }}
-          </ion-card-content>
         </ion-card>
       </div>
     </div>
- 
     <div class="swiper-pagination"></div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
+  </div>
+
+  <div class="headline-container">
+    <h4 class="section-title">Top Headlines</h4>
+    <ion-button fill="clear" color="primary" (click)="navigateToTopHeadlines()">
+      See all <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="related-news">
+    <h2>Related News</h2>
+    <ion-list>
+      <ion-item *ngFor="let article of relatedArticles">
+        <ion-thumbnail slot="start">
+          <img [src]="article.urlToImage" *ngIf="article.urlToImage">
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{ article.title }}</h3>
+          <p>{{ article.description }}</p>
+          <ion-button fill="clear" href="{{ article.url }}" target="_blank">Read more</ion-button>
+          <ion-button fill="clear" (click)="toggleFavorite(article)">
+            <ion-icon [name]="isFavorite(article) ? 'bookmark' : 'bookmark-outline'"></ion-icon>
+          </ion-button>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
