@@ -61,14 +61,16 @@ ion-button {
 }
 
 .swiper-pagination-bullet {
-  background: #007bff;
+  --background: #323232;
+  --color: #323232;
   width: 8px;
   height: 8px;
   opacity: 0.7;
 }
 
 .swiper-pagination-bullet-active {
-  background: #007aff;
+  --background: #323232;
+  --color: #323232;
   opacity: 1;
 }
 

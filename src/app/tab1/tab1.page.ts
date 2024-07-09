@@ -41,7 +41,7 @@ export class Tab1Page implements OnInit, AfterViewInit {
     this.apiService.getTopHeadlines().subscribe((response: NewsApiResponse) => {
       this.articles = response.articles.filter(article => article.urlToImage);
       this.topArticles = this.articles.slice(0, 10);
-      this.relatedArticles = this.articles.slice(10); // Sisanya sebagai berita terkait
+      this.relatedArticles = this.articles.slice(10); 
     });
   }
 
