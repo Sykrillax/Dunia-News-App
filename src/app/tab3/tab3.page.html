@@ -8,27 +8,37 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-segment (ionChange)="onSegmentChanged($event)" class="category-segment">
-    <ion-segment-button *ngFor="let category of categories" [value]="category">
-      {{ category | titlecase }}
-    </ion-segment-button>
-  </ion-segment>
+  <div class="header-background">
+    <img src="assets/img/assets2.png" alt="Header Image" class="header-image">
+  </div>
+
+  <div class="header-text-container">
+    <h1 class="header-title">News by Category</h1>
+    <p class="header-subtitle">Find news based on what you are looking for</p>
+    <ion-button (click)="presentCategoryPicker()" class="filter-button">
+      <ion-icon slot="start" name="filter-outline" ></ion-icon>
+      Filter
+    </ion-button>
+    <p *ngIf="selectedCategory" class="selected-category">Selected Category: {{ selectedCategory | titlecase }}</p>
+  </div>
+
+  <h2 class="section-title">Related News</h2>
 
   <div class="spinner-container" *ngIf="loading">
     <ion-spinner name="crescent"></ion-spinner>
   </div>
 
   <ion-list *ngIf="!loading">
-    <ion-item *ngFor="let article of headlines">
-      <ion-thumbnail slot="start">
+    <ion-item *ngFor="let article of filteredHeadlines">
+      <ion-thumbnail slot="start" *ngIf="article.urlToImage">
         <img [src]="article.urlToImage">
       </ion-thumbnail>
       <ion-label>
         <h2>{{ article.title }}</h2>
         <p>{{ article.description }}</p>
-        <ion-button fill="clear" href="{{ article.url }}" target="_blank">Read more</ion-button>
+        <ion-button fill="clear" href="{{ article.url }}" target="_blank" class="read-more-button">Read more</ion-button>
         <ion-button fill="clear" (click)="toggleFavorite(article)">
-          <ion-icon [name]="isFavorite(article) ? 'bookmark' : 'bookmark-outline'"></ion-icon>
+          <ion-icon [name]="isFavorite(article) ? 'bookmark' : 'bookmark-outline'" class="bookmark-icon"></ion-icon>
         </ion-button>
       </ion-label>
     </ion-item>

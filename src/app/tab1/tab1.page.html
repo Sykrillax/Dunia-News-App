@@ -27,8 +27,8 @@
   </div>
 
   <div class="headline-container">
-    <h4 class="section-title">Top Headlines</h4>
-    <ion-button fill="clear" color="primary" (click)="navigateToTopHeadlines()">
+    <h4 class="section-title">News by Category</h4>
+    <ion-button fill="clear" color="#936DB1" (click)="navigateToTopHeadlines()">
       See all <ion-icon name="chevron-forward-outline"></ion-icon>
     </ion-button>
   </div>
@@ -36,7 +36,7 @@
   <div class="divider"></div>
 
   <div class="related-news">
-    <h2>Related News</h2>
+    <h2>Headlines</h2>
     <ion-list>
       <ion-item *ngFor="let article of relatedArticles">
         <ion-thumbnail slot="start">

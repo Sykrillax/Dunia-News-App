@@ -1,66 +1,80 @@
-.category-segment {
+.header-background {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(to bottom right, #e0e0e0, #936DB1);
   display: flex;
-  overflow-x: auto; 
-  margin: 20px 0; 
-  
-  ion-segment-button {
-    padding: 4px 10px; 
-    margin-right: 5px; 
-    border-radius: 15px;
-    border: none; 
-    font-size: 12px; 
-    text-transform: capitalize; 
-    white-space: nowrap; 
-    min-width: auto; 
-    
-    &.segment-button-checked {
-      background-color: #fff; 
-      color: #936DB1; 
-      position: relative; 
+  justify-content: center;
+  align-items: center;
+}
 
-      &::after {
-        --content: ''; 
-        position: absolute; 
-        bottom: 0; 
-        left: 0; 
-        width: 100%; 
-        height: 2px; 
-        background-color: #936DB1; 
-        border-radius: 15px;
-      }
-    }
+.header-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
 
-    &:hover::after {
-      background-color: transparent;
-    }
+.header-text-container {
+  text-align: center;
+  margin: 20px;
+
+  .header-title {
+    font-family: 'PlayfairDisplay';
+    color: #323232;
+    font-size: 24px;
+    font-weight: bolder;
+    margin-bottom: 10px;
   }
 
-  @media (max-width: 576px) {
-    flex-wrap: wrap; 
-    ion-segment-button {
-      flex-grow: 1; 
-      margin-bottom: 10px; 
-    }
+  .header-subtitle {
+    font-family: 'PlayfairDisplay';
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #323232;
   }
+
+  .filter-button {
+    --background: #936DB1;
+    --color: #fff;
+    --border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+  }
+
+  .selected-category {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+  }
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px;
+  color: #555;
 }
 
 .spinner-container {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
 }
 
-ion-button {
-  --background: #ffffff;
-  --color: #936DB1;
+ion-button.load-more {
+  --background: #936DB1;
+  --color: #ffffff;
 }
 
 ion-spinner {
   --color: #936DB1;
 }
 
-.load-more {
-  --background: #936DB1;
-  --color: #ffffff;
+.read-more-button {
+  --color: #936DB1;
+}
+
+.bookmark-icon {
+  color: #936DB1;
 }

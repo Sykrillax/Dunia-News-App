@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Article, Source } from '../news-api-response';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -9,14 +10,15 @@ import { Article, Source } from '../news-api-response';
 })
 export class Tab3Page implements OnInit {
   public headlines: Article[] = [];
+  public filteredHeadlines: Article[] = [];
   public sources: Source[] = [];
   public categories = ['business', 'entertainment', 'health', 'science', 'sports', 'technology'];
-  public selectedCategory: string = 'business';
+  public selectedCategory: string = '';
   public loading: boolean = false;
   public showLoadMoreButton: boolean = false;
   public totalHeadlinesDisplayed: number = 8;
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private alertController: AlertController) {}
 
   ngOnInit() {
     this.getHeadlines();
@@ -25,8 +27,9 @@ export class Tab3Page implements OnInit {
   getHeadlines() {
     this.loading = true;
     this.apiService.getTopHeadlines().subscribe((result) => {
-      this.headlines = result.articles.slice(0, this.totalHeadlinesDisplayed);
-      this.showLoadMoreButton = result.articles.length > this.totalHeadlinesDisplayed;
+      this.headlines = result.articles;
+      this.filterHeadlines();
+      this.showLoadMoreButton = this.headlines.length > this.totalHeadlinesDisplayed;
       this.loading = false;
     });
   }
@@ -34,20 +37,22 @@ export class Tab3Page implements OnInit {
   getNewsByCategory(category: string) {
     this.loading = true;
     this.apiService.getNewsByCategory(category).subscribe((result) => {
-      this.headlines = result.articles.slice(0, this.totalHeadlinesDisplayed);
-      this.showLoadMoreButton = result.articles.length > this.totalHeadlinesDisplayed;
+      this.headlines = result.articles;
+      this.filterHeadlines();
+      this.showLoadMoreButton = this.headlines.length > this.totalHeadlinesDisplayed;
       this.loading = false;
     });
   }
 
-  onSegmentChanged(event: any) {
-    const category: string = event.detail.value;
-    this.getNewsByCategory(category);
+  filterHeadlines() {
+    this.filteredHeadlines = this.headlines
+      .filter(article => article.urlToImage && /^[A-Za-z0-9\s.,'!?"-]+$/.test(article.title))
+      .slice(0, this.totalHeadlinesDisplayed);
   }
 
   loadMoreHeadlines() {
     this.totalHeadlinesDisplayed += 8;
-    this.getNewsByCategory(this.selectedCategory);
+    this.filterHeadlines();
   }
 
   toggleFavorite(article: Article) {
@@ -63,5 +68,32 @@ export class Tab3Page implements OnInit {
   isFavorite(article: Article): boolean {
     const favorites = JSON.parse(localStorage.getItem('favoriteArticles') || '[]');
     return favorites.some((fav: Article) => fav.title === article.title);
+  }
+
+  async presentCategoryPicker() {
+    const alert = await this.alertController.create({
+      header: 'Select Category',
+      inputs: this.categories.map(category => ({
+        type: 'radio',
+        label: category.charAt(0).toUpperCase() + category.slice(1),
+        value: category,
+        checked: category === this.selectedCategory
+      })),
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'OK',
+          handler: (category: string) => {
+            this.selectedCategory = category;
+            this.getNewsByCategory(category);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

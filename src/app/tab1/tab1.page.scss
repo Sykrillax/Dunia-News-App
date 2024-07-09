@@ -2,7 +2,7 @@
 
 .top-news-title {
   font-family: 'Playfair Display';
-  font-weight: 900;
+  font-weight: bolder;
   color: #323232;
   text-align: center;
 }
@@ -28,7 +28,7 @@ ion-button {
 .swiper-container {
   margin-top: 30px;
   width: 100%;
-  height: 50vh; /* Maksimal tinggi 50% dari tinggi viewport */
+  height: 50vh; 
 }
 
 .swiper-slide {
@@ -42,22 +42,22 @@ ion-button {
 .swiper-card {
   width: 90%;
   max-width: 400px;
-  height: 400px; /* Tinggi tetap untuk semua card */
-  overflow: hidden; /* Menyembunyikan konten yang melampaui batas */
+  height: 400px; 
+  overflow: hidden; 
   display: flex;
   flex-direction: column;
 }
 
 .swiper-card img {
   width: 100%;
-  height: 200px; /* Tinggi tetap untuk semua gambar */
-  object-fit: cover; /* Menyesuaikan gambar agar sesuai dengan kotak */
+  height: 200px; 
+  object-fit: cover; 
   border-radius: 10px;
 }
 
 .swiper-pagination {
   position: relative;
-  bottom: 20px; /* Jarak dari bawah swiper container */
+  bottom: 20px; 
 }
 
 .swiper-pagination-bullet {
@@ -97,6 +97,7 @@ ion-button {
 }
 
 .related-news {
+  
   margin-top: 20px;
   padding: 0 16px;
 }
@@ -105,6 +106,7 @@ ion-button {
   font-family: 'Playfair Display', serif;
   color: #323232;
   margin-bottom: 16px;
+  font-weight: 900;
 }
 
 ion-list {
