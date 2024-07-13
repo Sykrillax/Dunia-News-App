@@ -20,6 +20,10 @@ export class Tab4Page implements OnInit {
     }
   }
 
+  setPlaceholder(event: Event) {
+    (event.target as HTMLImageElement).src = 'assets/img/placeholder.png';
+  }
+
   removeFavorite(article: Article) {
     this.favoriteArticles = this.favoriteArticles.filter(fav => fav.title !== article.title);
     localStorage.setItem('favoriteArticles', JSON.stringify(this.favoriteArticles));

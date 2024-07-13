@@ -30,12 +30,14 @@ export class Tab1Page implements OnInit, AfterViewInit {
       observer: true,
       observeParents: true,
       autoplay: {
-        delay: 1000,
+        delay: 100,
         disableOnInteraction: false
       },
       loop: true
     });
   }
+
+  
 
   loadTopHeadlines() {
     this.apiService.getTopHeadlines().subscribe((response: NewsApiResponse) => {

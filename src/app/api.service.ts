@@ -7,7 +7,7 @@ import { NewsApiResponse, SourceApiResponse } from './news-api-response';
   providedIn: 'root'
 })
 export class ApiService {
-  public apiKey: string = '6444b883d176425cbcceb92b781203b4';
+  public apiKey: string = '5f63d2577eb84670bd0a0becc87738b8';
   public apiUrl: string = 'https://newsapi.org/v2'; 
 
   constructor(public http: HttpClient) { }

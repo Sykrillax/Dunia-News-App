@@ -1,19 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Home
+      Dunia News
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <h1 class="top-news-title">Top 10 for Today</h1>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title class="top-news-title" size="large">Top 10 for Today</ion-title>
+    </ion-toolbar>
+  </ion-header>
   
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide" *ngFor="let article of topArticles">
         <ion-card (click)="openArticle(article.url)" class="swiper-card">
-          <img [src]="article.urlToImage" *ngIf="article.urlToImage">
+          <img [src]="article.urlToImage" *ngIf="article.urlToImage" >
           <ion-card-header>
             <ion-card-title>{{ article.title }}</ion-card-title>
             <ion-card-subtitle>{{ article.publishedAt | date:'medium' }} by {{ article.author }}</ion-card-subtitle>
@@ -21,6 +25,7 @@
         </ion-card>
       </div>
     </div>
+    <br>
     <div class="swiper-pagination"></div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
@@ -40,7 +45,7 @@
     <ion-list>
       <ion-item *ngFor="let article of relatedArticles">
         <ion-thumbnail slot="start">
-          <img [src]="article.urlToImage" *ngIf="article.urlToImage">
+          <img [src]="article.urlToImage" *ngIf="article.urlToImage" class="rounded-image">
         </ion-thumbnail>
         <ion-label>
           <h3>{{ article.title }}</h3>
