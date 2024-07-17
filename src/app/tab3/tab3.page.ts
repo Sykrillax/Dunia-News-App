@@ -24,6 +24,10 @@ export class Tab3Page implements OnInit {
     this.getHeadlines();
   }
 
+  setPlaceholder(event: Event) {
+    (event.target as HTMLImageElement).src = 'assets/img/placeholder.png';
+  }
+
   getHeadlines() {
     this.loading = true;
     this.apiService.getTopHeadlines().subscribe((result) => {

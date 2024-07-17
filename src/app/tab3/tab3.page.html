@@ -1,13 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      <ion-icon name="logo-designernews"></ion-icon>
-      Dunia News
+      Category
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title class="top-news-title" size="large">Category</ion-title>
+    </ion-toolbar>
+  </ion-header>
   <div class="header-background">
     <img src="assets/img/assets2.png" alt="Header Image" class="header-image">
   </div>
@@ -27,7 +30,12 @@
     <ion-list>
       <ion-item *ngFor="let article of headlines">
         <ion-thumbnail slot="start">
-          <img [src]="article.urlToImage" *ngIf="article.urlToImage">
+          <img 
+            [src]="article.urlToImage || 'assets/placeholder.png'" 
+            (error)="setPlaceholder($event)"
+            alt="Article image"
+            class="rounded-image"
+          />
         </ion-thumbnail>
         <ion-label>
           <h3>{{ article.title }}</h3>
@@ -40,6 +48,7 @@
       </ion-item>
     </ion-list>
   </div>
+  
 
   <ion-button *ngIf="showLoadMoreButton && !loading" expand="block" class="load-more" (click)="loadMoreHeadlines()">
     Load More
